@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SportsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BroSportsEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Members" EntityType="SportsModel.Member" />
+    <EntitySet Name="UserChats" EntityType="SportsModel.UserChat" />
+    <EntitySet Name="UserInsults" EntityType="SportsModel.UserInsult" />
+    <AssociationSet Name="FK_Members_UserChats" Association="SportsModel.FK_Members_UserChats">
+      <End Role="UserChats" EntitySet="UserChats" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="E_Mail_Address" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="UserChat" Relationship="SportsModel.FK_Members_UserChats" FromRole="Members" ToRole="UserChats" />
+  </EntityType>
+  <EntityType Name="UserChat">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Image_VideoURL" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Body" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
+    <Property Name="Likes" Type="Int32" />
+    <Property Name="MemeberID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="SportsModel.FK_Members_UserChats" FromRole="UserChats" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="UserInsult">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="Body" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="PostID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Members_UserChats">
+    <End Role="UserChats" Type="SportsModel.UserChat" Multiplicity="1" />
+    <End Role="Members" Type="SportsModel.Member" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UserChats">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

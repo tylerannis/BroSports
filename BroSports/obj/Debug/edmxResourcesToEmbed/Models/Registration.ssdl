@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SportsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SportsModelStoreContainer">
+    <EntitySet Name="Members" EntityType="SportsModel.Store.Members" store:Type="Tables" Schema="spTyler" />
+    <EntitySet Name="UserChats" EntityType="SportsModel.Store.UserChats" store:Type="Tables" Schema="spTyler" />
+    <EntitySet Name="UserInsults" EntityType="SportsModel.Store.UserInsults" store:Type="Tables" Schema="spTyler" />
+    <AssociationSet Name="FK_Members_UserChats" Association="SportsModel.Store.FK_Members_UserChats">
+      <End Role="UserChats" EntitySet="UserChats" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Password" Type="nvarchar" MaxLength="25" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="E-Mail Address" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="UserChats">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image/VideoURL" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="Date Created" Type="datetime" />
+    <Property Name="Likes" Type="int" />
+    <Property Name="MemeberID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInsults">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Members_UserChats">
+    <End Role="UserChats" Type="SportsModel.Store.UserChats" Multiplicity="1" />
+    <End Role="Members" Type="SportsModel.Store.Members" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UserChats">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
