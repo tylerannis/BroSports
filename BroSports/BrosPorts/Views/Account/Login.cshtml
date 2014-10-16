@@ -1,10 +1,9 @@
 ﻿@model BrosPorts.Models.Login
-
 @{
-    ViewBag.Title = "Welcome to the THUNDER DOME";
+    ViewBag.Title = "Login";
 }
 
-<div class="view">
+
 @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
 {
     <div class="error">
@@ -18,7 +17,8 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-
+    <fieldset>
+        <legend>Login</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
@@ -39,21 +39,10 @@
         <p>
             <input type="submit" value="Login" />
         </p>
-    
+    </fieldset>
 }
-   
-<fieldset>
-    <legend>Pick Your Sport</legend>
-    <div class="homepagepics">
-    <a href="~/Football/Index"><img src="~/Content/Images/FootballHelmet.jpg" /></a>
-    &nbsp &nbsp &nbsp &nbsp
-    <a href="~/Basketball/Index"><img src="~/Content/Images/basketball.jpg" /></a>
-    <br />
-    <br />
-    <a href="~/Baseball/Index"><img src="~/Content/Images/baseball2.jpeg" /></a>
-    &nbsp &nbsp &nbsp &nbsp
-    <a href="~/Hockey/Index"><img src="~/Content/Images/Hockey.jpg" /></a>
-        </div>
-</fieldset>
 
-     </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

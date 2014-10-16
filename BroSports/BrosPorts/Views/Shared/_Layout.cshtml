@@ -7,10 +7,35 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+    <header>
+           <div class="homepagepics">
+    <a href="~/Football/Index">Football</a>
+    &nbsp &nbsp &nbsp &nbsp
+    <a href="~/Basketball/Index">Basketball</a>
+    &nbsp &nbsp &nbsp &nbsp
+    
+    <a href="~/Baseball/Index">Baseball</a>
+    &nbsp &nbsp &nbsp &nbsp
+    <a href="~/Hockey/Index">Hockey</a>
+        </div>
+
+    </header>
 <body>
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 </body>
+    <footer>
+              <div class="homepagepics">
+    <a href="~/Football/Index">Football</a>
+    &nbsp &nbsp &nbsp &nbsp
+    <a href="~/Basketball/Index">Basketball</a>
+    &nbsp &nbsp &nbsp &nbsp
+    
+    <a href="~/Baseball/Index">Baseball</a>
+    &nbsp &nbsp &nbsp &nbsp
+    <a href="~/Hockey/Index">Hockey</a>
+        </div>
+    </footer>
 </html>

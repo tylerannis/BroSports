@@ -134,6 +134,7 @@
     <Compile Include="Controllers\FootballController.cs" />
     <Compile Include="Controllers\HockeyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,14 +163,20 @@
     <Compile Include="Models\Post.cs">
       <DependentUpon>BrosBlogses.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Registration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\actualbaseball.jpg" />
+    <Content Include="Content\Images\baberuth.jpg" />
     <Content Include="Content\Images\Baseball.jpg" />
+    <Content Include="Content\Images\baseball2.jpeg" />
+    <Content Include="Content\Images\baseballdiamond.jpg" />
     <Content Include="Content\Images\basketball.jpg" />
     <Content Include="Content\Images\FootballHelmet.jpg" />
+    <Content Include="Content\Images\hank aaron.jpg" />
     <Content Include="Content\Images\Hockey.jpg" />
+    <Content Include="Content\Images\loutheseal.jpg" />
     <Content Include="Content\Images\Sport-Baseball-Corner-view-baseball-field-Sample.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -258,6 +265,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -292,6 +300,13 @@
     <Content Include="Views\Hockey\Blog.cshtml" />
     <Content Include="Views\Hockey\History.cshtml" />
     <Content Include="Views\Hockey\ToBeAFan.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\Posts\Create.cshtml" />
+    <Content Include="Views\Posts\Edit.cshtml" />
+    <Content Include="Views\Posts\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

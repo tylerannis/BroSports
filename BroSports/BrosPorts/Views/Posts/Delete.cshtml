@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BrosPorts.Models.Post>
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Delete Post?</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Body)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Body)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateCreated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateCreated)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageUrl)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Likes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Likes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Author.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Author.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+ <p class="delt">
+            <input type="submit" value="Delete:(" />
+        </p>
+}

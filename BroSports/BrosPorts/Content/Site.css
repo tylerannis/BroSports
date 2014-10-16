@@ -5,13 +5,18 @@
     background-color: #fff;
 }
 
-header, footer, nav, section {
+ nav, section {
     display: block;
 }
+ header, footer{
+     display: inline-block;
+     font-size: medium;
+     margin-left: 550px;
+     margin-right: 500px;
+ }
 h2 {
     text-align: center;
 }
-
 
 /* Styles for basic forms
 -----------------------------------------------------------*/
@@ -66,6 +71,21 @@ textarea {
 .validation-summary-valid {
     display: none;
 }
+
+/*HOME PAGE CSS*/
+.view{
+    margin-left: 400px;
+    margin-right: 400px;
+}
+.homepagepics img{
+    height: 300px;
+    width: 300px;
+}
+form{
+    margin-left: 200px;
+}
+/*START Baseball CSS*/
+
 .posChart{
    text-align:center;
 }
@@ -73,3 +93,43 @@ textarea {
     text-align: center;
     font-size: large;
 }
+.hankaaron img{
+    height: 230px;
+    width: 400px;
+    box-shadow: 0px 0px 20px 7px black;
+}
+.homebase, .baberuth{
+ display: inline-block;  
+}
+.hankaaron, .fanbase{
+    display: inline-block;
+}
+.baberuth{
+    margin-left: 590px;
+}
+.fanbase{
+    margin-left: 475px;
+}
+.hankaaron{
+    margin-left: 25px;
+}
+.homebase{
+    margin-left: 25px;
+}
+.baberuth img{
+    height: 250px;
+    width: 400px;
+    box-shadow: 0px 0px 20px 7px black;
+}
+.homebase img{
+    height: 250px;
+    width: 400px;
+    box-shadow: 0px 0px 20px 2px blue;
+}
+.fanbase img{
+     height: 250px;
+    width: 400px;
+    box-shadow: 0px 0px 20px 2px blue;
+}
+
+/*END Baseball CSS*/
